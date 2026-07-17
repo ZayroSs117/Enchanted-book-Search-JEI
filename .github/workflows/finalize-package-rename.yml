@@ -1,0 +1,44 @@
+name: Finalize package rename
+
+on:
+  push:
+    branches:
+      - public-readme-cleanup
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  finalize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+
+      - name: Rebuild the JEI plugin source in the neutral package
+        shell: bash
+        run: |
+          set -euo pipefail
+          target='src/main/java/io/github/zayross117/enchantedbooksearch/EnchantedBookSearchJeiPlugin.java'
+          mkdir -p "$(dirname "$target")"
+          cat .source-migration/plugin.b64.part* | tr -d '\n' | base64 --decode > "$target"
+
+          rm -rf src/main/java/fr
+          rm -rf .source-migration
+          rm -f .github/workflows/finalize-package-rename.yml
+          chmod +x scripts/*.sh
+
+      - name: Commit finalized public structure
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git add --chmod=+x scripts/*.sh
+          if git diff --cached --quiet; then
+            exit 0
+          fi
+          git commit -m 'Finalise le package public et supprime les anciens noms'
+          git push
