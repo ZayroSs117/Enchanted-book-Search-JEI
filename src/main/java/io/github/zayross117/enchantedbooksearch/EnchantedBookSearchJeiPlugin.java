@@ -1,4 +1,4 @@
-package fr.lilian.enchantedbooksearch;
+package io.github.zayross117.enchantedbooksearch;
 
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;

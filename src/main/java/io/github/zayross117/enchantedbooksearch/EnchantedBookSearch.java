@@ -1,4 +1,4 @@
-package fr.lilian.enchantedbooksearch;
+package io.github.zayross117.enchantedbooksearch;
 
 import net.minecraftforge.fml.common.Mod;
 
