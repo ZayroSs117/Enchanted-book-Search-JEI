@@ -1,4 +1,4 @@
-import fr.lilian.enchantedbooksearch.EnchantedBookSearchJeiPlugin;
+import io.github.zayross117.enchantedbooksearch.EnchantedBookSearchJeiPlugin;
 import mezz.jei.api.ingredients.IIngredientType;
 import mezz.jei.api.registration.IExtraIngredientRegistration;
 import mezz.jei.api.registration.IIngredientAliasRegistration;
