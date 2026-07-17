@@ -1,0 +1,35 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="MIT"
+
+[[mods]]
+modId="enchantedbooksearch"
+version="1.0.6"
+displayName="Enchanted Book Search"
+displayTest="IGNORE_SERVER_VERSION"
+authors="OpenAI for Lilian"
+description='''
+Client-side JEI helper for Minecraft 1.20.1.
+Adds each enchantment level from its real configured minimum through maximum to JEI, including Apotheosis-configured limits, makes every level searchable, and keeps levels ordered from minimum to maximum.
+'''
+
+[[dependencies.enchantedbooksearch]]
+modId="forge"
+mandatory=true
+versionRange="[47.2.0,)"
+ordering="NONE"
+side="CLIENT"
+
+[[dependencies.enchantedbooksearch]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.20.1,1.20.2)"
+ordering="NONE"
+side="CLIENT"
+
+[[dependencies.enchantedbooksearch]]
+modId="jei"
+mandatory=true
+versionRange="[15.20.0.130,)"
+ordering="AFTER"
+side="CLIENT"
